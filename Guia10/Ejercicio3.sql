@@ -1,0 +1,14 @@
+USE sakila;
+
+DELIMITER $$
+
+CREATE TRIGGER before_update_customer
+BEFORE UPDATE ON customer
+FOR EACH ROW
+BEGIN
+
+SET NEW.last_update = CURRENT_TIMESTAMP;
+
+END$$
+
+DELIMITER ;
